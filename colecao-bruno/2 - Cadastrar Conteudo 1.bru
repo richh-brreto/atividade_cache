@@ -1,0 +1,23 @@
+meta {
+  name: 2 - Cadastrar Conteúdo 1
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/conteudos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "titulo": "Estruturas de Dados",
+    "corpo": "Artigo sobre Filas, Pilhas e Listas Encadeadas",
+    "autor": "Prof. Roberto"
+  }
+}
+
+vars:pre-request {
+  baseUrl: localhost:8080
+}

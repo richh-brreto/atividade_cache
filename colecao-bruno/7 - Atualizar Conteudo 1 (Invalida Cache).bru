@@ -1,0 +1,19 @@
+meta {
+  name: 7 - Atualizar Conteúdo 1 (Invalida Cache)
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{baseUrl}}/conteudos/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "titulo": "Estruturas de Dados Avançadas",
+    "corpo": "Adicionando árvores binárias, listas encadeadas e grafos",
+    "autor": "Prof. Roberto"
+  }
+}

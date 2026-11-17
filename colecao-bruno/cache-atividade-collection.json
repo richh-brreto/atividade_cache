@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "cache-atividade-collection",
+		"name": "Cache Atividade",
+		"description": "Coleção de testes para a API de Cache em Memória com Spring Boot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 - Estatísticas Iniciais",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/cache/estatisticas",
+					"host": ["{{baseUrl}}"],
+					"path": ["cache", "estatisticas"]
+				}
+			}
+		},
+		{
+			"name": "2 - Cadastrar Conteúdo 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"titulo\": \"Estruturas de Dados\",\n  \"corpo\": \"Artigo sobre Filas, Pilhas e Listas Encadeadas\",\n  \"autor\": \"Prof. Roberto\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/conteudos",
+					"host": ["{{baseUrl}}"],
+					"path": ["conteudos"]
+				}
+			}
+		},
+		{
+			"name": "3 - Cadastrar Conteúdo 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"titulo\": \"Arquitetura e Cache\",\n  \"corpo\": \"Guia prático de caching em memória com Spring Boot\",\n  \"autor\": \"Profa. Maria\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/conteudos",
+					"host": ["{{baseUrl}}"],
+					"path": ["conteudos"]
+				}
+			}
+		},
+		{
+			"name": "4 - Buscar Conteúdo 1 (1ª vez - MISS)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/conteudos/1",
+					"host": ["{{baseUrl}}"],
+					"path": ["conteudos", "1"]
+				}
+			}
+		},
+		{
+			"name": "5 - Buscar Conteúdo 1 (2ª vez - HIT)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/conteudos/1",
+					"host": ["{{baseUrl}}"],
+					"path": ["conteudos", "1"]
+				}
+			}
+		},
+		{
+			"name": "6 - Estatísticas do Cache (Após Busca)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/cache/estatisticas",
+					"host": ["{{baseUrl}}"],
+					"path": ["cache", "estatisticas"]
+				}
+			}
+		},
+		{
+			"name": "7 - Atualizar Conteúdo 1 (Invalida Cache)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"titulo\": \"Estruturas de Dados Avançadas\",\n  \"corpo\": \"Adicionando árvores binárias, listas encadeadas e grafos\",\n  \"autor\": \"Prof. Roberto\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/conteudos/1",
+					"host": ["{{baseUrl}}"],
+					"path": ["conteudos", "1"]
+				}
+			}
+		},
+		{
+			"name": "8 - Buscar Conteúdo 1 (Após Update - MISS)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/conteudos/1",
+					"host": ["{{baseUrl}}"],
+					"path": ["conteudos", "1"]
+				}
+			}
+		},
+		{
+			"name": "9 - Excluir Conteúdo 2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/conteudos/2",
+					"host": ["{{baseUrl}}"],
+					"path": ["conteudos", "2"]
+				}
+			}
+		},
+		{
+			"name": "10 - Limpar Todo o Cache",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/cache",
+					"host": ["{{baseUrl}}"],
+					"path": ["cache"]
+				}
+			}
+		},
+		{
+			"name": "11 - Estatísticas Finais do Cache",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/cache/estatisticas",
+					"host": ["{{baseUrl}}"],
+					"path": ["cache", "estatisticas"]
+				}
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}

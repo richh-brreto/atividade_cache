@@ -1,0 +1,19 @@
+meta {
+  name: 3 - Cadastrar Conteúdo 2
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/conteudos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "titulo": "Arquitetura e Cache",
+    "corpo": "Guia prático de caching em memória com Spring Boot",
+    "autor": "Profa. Maria"
+  }
+}

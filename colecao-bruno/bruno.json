@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Cache Atividade",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
